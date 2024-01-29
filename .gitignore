@@ -1,0 +1,7 @@
+# JetBrains IDE
+.idea/
+
+# Environment
+/venv/
+.env
+/db.sqlite3
