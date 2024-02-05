@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "home",
     "api",
+    "order",
 ]
 
 MIDDLEWARE = [
@@ -81,9 +83,13 @@ WSGI_APPLICATION = "mt.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        "NAME": env("MT_DB_NAME"),
+        "HOST": env("MT_DB_HOST"),
+        "PORT": env.int("MT_DB_PORT"),
+        "USER": env("MT_DB_USERNAME"),
+        "PASSWORD": env("MT_DB_PASSWORD"),
     }
 }
 
@@ -153,3 +159,5 @@ TWILIO = {
     "token": env.str("MT_TWILIO_AUTH_TOKEN"),
     "sender": env.str("MT_TWILIO_SENDER_NUMBER"),
 }
+
+CELL_ID_LINK = env.str("MT_CELL_ID_LINK")

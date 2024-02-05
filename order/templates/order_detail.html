@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детальна інформація про замовлення</title>
+</head>
+<body>
+    <h1>Детальна інформація про замовлення</h1>
+    <p>ID: {{ order.slug }}</p>
+    <p>Користувач: {{ order.user_name }} ({{ order.user_email }})</p>
+    <p>Початок оренди: {{ order.start_datetime }}</p>
+    <p>Кінець оренди: {{ order.end_datetime }}</p>
+    <p>Комірка: {{ order.cell_id }}</p>
+</form>
+</body>
+</html>

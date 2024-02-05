@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body>
+    <form method="post" action="{% url 'orders' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Відправити</button>
+{% if errors %}
+    <div class="alert alert-danger">
+        <strong>Error:</strong>
+        {% for key, value in errors.items %}
+            {{ key }}: {{ value.0 }}<br>
+        {% endfor %}
+    </div>
+{% endif %}
+</form>
+</body>
+</html>
