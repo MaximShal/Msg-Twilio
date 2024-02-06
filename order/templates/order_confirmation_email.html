@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Замовлення #{{order.id}}</h1>
+    <p>Час початку бронювання: {{order.start_datetime}}</p>
+    <p>Комірка #{{order.cell_id}}</p>
+    <a href="{{ domain }}{% url 'order-detail' order.slug %}">Натисніть на це посилання для детальної інформації</a>
+</body>
+</html>

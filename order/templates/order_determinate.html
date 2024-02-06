@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Замовлення #{{order.id}}</h1>
+    <p>Нагадуємо Вам, що закінчується термін оренди!</p>
+    <a href="{{ domain }}{% url 'order-detail' order.slug %}">Натисніть на це посилання для детальної інформації</a>
+</body>
+</html>

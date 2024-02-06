@@ -30,8 +30,9 @@ SECRET_KEY = env.str("MT_DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.str("MT_DEBUG", False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+DOMAIN = env.str("MT_DOMAIN_NAME", "localhost:8000")
 
 # Application definition
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_celery_beat",
     "home",
     "api",
     "order",
@@ -161,3 +163,12 @@ TWILIO = {
 }
 
 CELL_ID_LINK = env.str("MT_CELL_ID_LINK")
+CELERY_BROKER_URL = env.str("MT_CELERY_BROKER_URL")
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env.str("G_EMAIL_HOST")
+EMAIL_PORT = env.str("G_EMAIL_PORT")
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env.str("G_EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env.str("G_EMAIL_HOST_PASSWORD")
