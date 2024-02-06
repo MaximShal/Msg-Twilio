@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.utils.timezone import datetime
+from django.utils import timezone
 from django.views import View
 
 from order.forms import OrderForm
@@ -17,15 +17,15 @@ class OrderCreateView(View):
         form = OrderForm(
             {
                 "start_timestamp": int(
-                    datetime.timestamp(
-                        datetime.strptime(
+                    timezone.datetime.timestamp(
+                        timezone.datetime.strptime(
                             request.POST["start_timestamp"], "%Y-%m-%dT%H:%M"
                         )
                     )
                 ),
                 "end_timestamp": int(
-                    datetime.timestamp(
-                        datetime.strptime(
+                    timezone.datetime.timestamp(
+                        timezone.datetime.strptime(
                             request.POST["end_timestamp"], "%Y-%m-%dT%H:%M"
                         )
                     )

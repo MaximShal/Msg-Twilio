@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "msg-twilio"
+version = "0.1.0"
+description = ""
+authors = ["MaximSh <baksbanni31@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+gunicorn = "^21.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+django = {version = "4.2.8", allow-prereleases = true}
+environs = {version = "10.3.0", allow-prereleases = true}
+twilio = {version = "8.12.0", allow-prereleases = true}
+djangorestframework = {version = "3.14.0", allow-prereleases = true}
+psycopg2-binary = {version = "2.9.9", allow-prereleases = true}
+requests = {version = ">=2.31.0,<2.32.0", allow-prereleases = true}
+celery = {version = "5.3.6", allow-prereleases = true}
+django-celery-beat = {version = "2.5.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
