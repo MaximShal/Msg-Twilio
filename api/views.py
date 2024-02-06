@@ -59,10 +59,14 @@ class OrderCreateView(ModelViewSet):
     serializer_class = OrderSerializer
 
     def create(self, request, *args, **kwargs):
-        if request.data["end_timestamp"] > request.data["start_timestamp"] \
-                and request.data["end_timestamp"] > int(timezone.now().timestamp()):
+        if request.data["end_timestamp"] > request.data[
+            "start_timestamp"
+        ] and request.data["end_timestamp"] > int(timezone.now().timestamp()):
             user_data = request.data.pop("user_data")
             request.data["user_email"] = user_data.get("email")
             request.data["user_name"] = user_data.get("name")
             return super().create(request, *args, **kwargs)
-        return Response({"error": "Invalid start_timestamp, end_timestamp params"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            {"error": "Invalid start_timestamp, end_timestamp params"},
+            status=status.HTTP_400_BAD_REQUEST,
+        )

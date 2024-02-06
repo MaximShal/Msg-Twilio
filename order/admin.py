@@ -12,7 +12,7 @@ class OrderAdmin(admin.ModelAdmin):
         "user_name",
         "cell_id",
         "reminded",
-        "created_at"
+        "created_at",
     )
 
     @staticmethod
@@ -22,6 +22,3 @@ class OrderAdmin(admin.ModelAdmin):
     @staticmethod
     def get_convert_start_timestep(obj):
         return obj.start_datetime()
-
-
-

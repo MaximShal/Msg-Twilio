@@ -14,13 +14,17 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ('-created_at',)
+        ordering = ("-created_at",)
 
     def __str__(self):
         return f"Rental {self.pk} - {self.user_name}"
 
     def start_datetime(self):
-        return timezone.datetime.fromtimestamp(self.start_timestamp).strftime('%d.%m.%y %H:%M')
+        return timezone.datetime.fromtimestamp(self.start_timestamp).strftime(
+            "%d.%m.%y %H:%M"
+        )
 
     def end_datetime(self):
-        return timezone.datetime.fromtimestamp(self.end_timestamp).strftime('%d.%m.%y %H:%M')
+        return timezone.datetime.fromtimestamp(self.end_timestamp).strftime(
+            "%d.%m.%y %H:%M"
+        )

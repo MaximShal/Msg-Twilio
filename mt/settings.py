@@ -85,8 +85,8 @@ WSGI_APPLICATION = "mt.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": env("MT_DB_NAME"),
         "HOST": env("MT_DB_HOST"),
         "PORT": env.int("MT_DB_PORT"),
@@ -164,9 +164,9 @@ TWILIO = {
 
 CELL_ID_LINK = env.str("MT_CELL_ID_LINK")
 CELERY_BROKER_URL = env.str("MT_CELERY_BROKER_URL")
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = env.str("G_EMAIL_HOST")
 EMAIL_PORT = env.str("G_EMAIL_PORT")
 EMAIL_USE_TLS = True
